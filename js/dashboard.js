@@ -25,6 +25,7 @@ function resetSession() {
   lastCheckTime = Date.now();
 
   focusStats.innerText =
+    `❓ Current Mood: 😐 neutral\n` +
     `🟢 Focused Time: 00:00\n` +
     `🔴 Distracted Time: 00:00\n` +
     `⏱️ Session Duration: 00:00\n` +
@@ -72,10 +73,30 @@ function startTracking(video, canvas, displaySize) {
       }
     }
 
+    let currentMood = "Unknown";
+
+    if (resizedDetections.length > 0 && resizedDetections[0].expressions) {
+      const expressions = resizedDetections[0].expressions;
+      const sorted = Object.entries(expressions).sort((a, b) => b[1] - a[1]);
+      currentMood = sorted[0][0]; // the most confident expression
+    }
+
+    // Update mood display
+    const emojiMap = {
+      happy: "😊",
+      sad: "😢",
+      angry: "😠",
+      surprised: "😲",
+      disgusted: "🤢",
+      fearful: "😨",
+      neutral: "😐"
+    };
+
     const totalTime = focusedTime + distractedTime;
     const focusPercentage = totalTime > 0 ? ((focusedTime / totalTime) * 100).toFixed(1) : '0.0';
 
     focusStats.innerText = 
+      `❓ Current Mood: ${emojiMap[currentMood] || "😐"} ${currentMood}\n` +
       `🟢 Focused Time: ${formatTime(focusedTime)}\n` +
       `🔴 Distracted Time: ${formatTime(distractedTime)}\n` +
       `⏱️ Session Duration: ${formatTime(totalTime)}\n` +

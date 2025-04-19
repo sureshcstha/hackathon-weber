@@ -20,8 +20,8 @@ This app uses AI-powered face tracking via `face-api.js`, which is built on top 
 3. Facial Expression Recognition
     * Model: `faceRecognitionNet`
     * Purpose: Helping track faces more accurately in the video stream
-    * The model is used to identify and differentiate faces in a stream, but it isn't actively used for recognition in this code. It aids in accurately tracking faces.
+    * AI Use: The model is used to identify and differentiate faces in a stream, but it isn't actively used for recognition in this code. It aids in accurately tracking faces.
 4. Facial Expression Recognition
     * Model: `faceExpressionNet`
     * Purpose: Recognizes expressions like happy, sad, angry, surprised, etc.
-    * AI Use: Though your code doesn't currently use expressions to determine focus, it's loaded — potentially useful for richer focus/emotion tracking in the future.
+    * AI Use: The model is used to detect emotions in real-time from the video feed. Based on the detected expressions, the system can infer the user's mood (e.g., happy, sad) and display corresponding mood emojis.
