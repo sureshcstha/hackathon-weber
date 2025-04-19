@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Focus Tracker</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/face-api.min.js"></script>
+  <script defer src="js/dashboard.js"></script>
+</head>
+<body>
+  <div class="top-buttons">
+    <a href="/index.html">
+      <button class="nav-button home">🏠 Home</button>
+    </a>
+    <a href="/history.html">
+      <button class="nav-button history">📊 History</button>
+    </a>
+  </div>
+  <video id="video" width="720" height="560" autoplay muted></video>
+  <div id="focus-stats"></div>
+  <div class="hidden">
+    <audio src="/assets/audio/backtowork.mp3" data-sound="distracted"></audio>
+  </div>
+  <!-- <button id="stop-session">Stop Session</button> -->
+</body>
+</html>
